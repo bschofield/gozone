@@ -951,8 +951,8 @@ func (s *Scanner) Next(outrecord *Record) error {
 		domain = fmt.Sprintf("%s.%s", token, s.origin)
 	}
 
-	//premetivly try to parse the class
-	//allows for " NS Domain" as seen in the zone file for some TLDs
+	// premptively try to parse the class
+	// allows for " NS Domain" as seen in the zone file for some TLDs
 	class, err := parseType(token)
 	if err == nil {
 		record.Type = class
@@ -1028,8 +1028,8 @@ func (s *Scanner) Next(outrecord *Record) error {
 			break
 		}
 
-		//NS tokens need to check the domain
-		//this is just to fix issues with the .COM zone file
+		// NS tokens need to check the domain
+		// this is just to fix issues with the .COM zone file
 		if record.Type == RecordType_NS {
 			if token[len(token)-1] != '.' {
 				if s.origin == "" {
